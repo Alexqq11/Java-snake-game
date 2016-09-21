@@ -1,18 +1,23 @@
 package me.alexqq11;
 
+import java.util.LinkedList;
+
 /**
  * Created by Alexqq11 on 21.09.2016.
  */
-public class Snake extends  Essence {
+public class Snake extends Essence {
     private GameEngine engine;
     private int lives;
     private int length;
     private boolean alive;
-    private Essence[]  snakeSegments;  // TODO make a  two linked list to store snake segments  or iterable deque
+    private LinkedList<SnakePart> snakeParts;
     private EssenceConfig snakeConfig;
 
     private void updateSnakeSegment() {
-        //TODO UPDATE SNAKE STATE
+        if (!this.positionEquals(this.snakeParts.getFirst())) {
+            snakeParts.addFirst(new SnakePart(this));
+            snakeParts.pollLast() /?
+        }
     }
 
     public void moveTo(SnakeDirections direction){
@@ -36,8 +41,8 @@ public class Snake extends  Essence {
     public boolean isAlive(){
         return this.alive;
     }
-    public Essence[] getSnakePosition(){
-        return this.snakeSegments;
+    public LinkedList<SnakePart> getSnakePosition(){
+        return this.snakeParts;
     }
 }
 

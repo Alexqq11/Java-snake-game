@@ -9,5 +9,11 @@ public class Essence{
     public int width;
     public int height;
     private int id;
-   // THINK  ABOUT IT  public EssenceConfig  configuration;
+    public boolean positionEquals(Essence essence){
+        return  this.x == essence.x && this.y == essence.y;
+    }
+    public int getId() {
+        return this.id;
+    }
+    // THINK  ABOUT IT  public EssenceConfig  configuration;
 }
