@@ -8,5 +8,6 @@ public class Essence{
     public int y;
     public int width;
     public int height;
+    private int id;
    // THINK  ABOUT IT  public EssenceConfig  configuration;
 }
