@@ -7,7 +7,7 @@ package me.alexqq11;
 public class PlayerClient {
     private int score;
     public Snake snake;
-    private boolean game_runed;
+    private boolean isRunning;
     private GameEngine engine;
     private int id;
     //private int snake_id;
