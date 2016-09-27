@@ -8,8 +8,8 @@ import java.util.LinkedList;
 public class Snake extends Essence {
     private GameEngine engine;
     private int lives;
-    private int length;
-    private boolean alive;
+    private int size; // length => size
+    private boolean isAlive; // alive => isAlive
     private LinkedList<SnakePart> snakeParts;
     private EssenceConfig snakeConfig;
 
@@ -22,7 +22,7 @@ public class Snake extends Essence {
 
     public void moveTo(SnakeDirections direction){
         if (direction == SnakeDirections.UP)
-            this.y+=1;
+            this.y += 1;
             this.updateSnakeSegment();
         // TODO MAKE SWITH HERE
     }
@@ -36,10 +36,10 @@ public class Snake extends Essence {
         return this.lives;
     }
     public int getLength(){
-        return this.length;
+        return this.size;
     }
     public boolean isAlive(){
-        return this.alive;
+        return this.isAlive;
     }
     public LinkedList<SnakePart> getSnakePosition(){
         return this.snakeParts;
