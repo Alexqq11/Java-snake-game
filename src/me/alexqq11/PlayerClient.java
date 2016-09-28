@@ -14,5 +14,8 @@ public class PlayerClient {
     public void moveTO(SnakeDirections direction) {
         engine.sendSignal(id, EngineSignals.CLIENT_ACTION_MOVEMENT, direction);
     }
+    public void updateScore(){
+        this.score += 1;
+    }
 
 }
