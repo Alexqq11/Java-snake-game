@@ -16,7 +16,7 @@ public class Snake extends Essence {
     private void updateSnakeSegment() {
         if (!this.positionEquals(this.snakeParts.getFirst())) {
             snakeParts.addFirst(new SnakePart(this));
-            snakeParts.pollLast() /?
+            snakeParts.removeLast();
         }
     }
 
