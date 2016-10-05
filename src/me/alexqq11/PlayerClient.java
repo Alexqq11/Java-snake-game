@@ -6,14 +6,19 @@ package me.alexqq11;
  */
 public class PlayerClient {
     private int score;
-    public Snake snake;
-    private boolean isRunning;
-    private GameEngine engine;
+    private boolean isActive;
     private int id;
-    //private int snake_id;
-    public void moveTO(SnakeDirections direction) {
-        engine.sendSignal(id, EngineSignals.CLIENT_ACTION_MOVEMENT, direction);
+
+    PlayerClient(int id){
+        this.score = 0;
+        this.isActive = true;
+        this.id = id;//this.hashCode();
     }
+
+    public int getId(){
+        return this.id;
+    }
+
     public void updateScore(){
         this.score += 1;
     }

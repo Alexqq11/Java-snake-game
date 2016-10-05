@@ -1,4 +1,4 @@
-package alexqq11;
+package me.alexqq11;
 import java.awt.Rectangle;
 import java.awt.Color;
 

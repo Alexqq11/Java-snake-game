@@ -3,15 +3,15 @@ package me.alexqq11;
 /**
  * Created by Alexqq11 on 20.09.2016.
  */
-public class Essence{
+public class Entity {
     public int x;
     public int y;
     // лучше переделать на Point position
     public int width;
     public int height;
     private int id;
-    public boolean positionEquals(Essence essence){
-        return  this.x == essence.x && this.y == essence.y;
+    public boolean positionEquals(Entity entity){
+        return  this.x == entity.x && this.y == entity.y;
     }
     public int getId() {
         return this.id;

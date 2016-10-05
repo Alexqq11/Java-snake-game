@@ -1,10 +1,9 @@
 package me.alexqq11;
-import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.util.Random;
 
 
-public class Bonus extends Essence {
+public class Bonus extends Entity {
 	//into config public int pointsSize;
 	//public Point position;
 	public boolean isCatched;
