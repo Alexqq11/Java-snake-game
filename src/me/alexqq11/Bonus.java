@@ -29,11 +29,12 @@ public class Bonus extends Entity {
 
 	public void respawnBonus() {
 		if (isCatched) {
-			Random random = new Random();
+			//change location
+			//Random random = new Random();
 			//int x = Toolkit.getDefaultToolkit().getScreenSize().width; // it is skeleton methods here
 			//int y = Toolkit.getDefaultToolkit().getScreenSize().height;
-			this.x = random.nextInt(x);
-			this.y = random.nextInt(y);
+			//this.x = random.nextInt(x);
+			//this.y = random.nextInt(y);
 		}
 	}
 }

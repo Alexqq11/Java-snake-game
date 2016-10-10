@@ -6,6 +6,6 @@ package me.alexqq11;
 public enum BonusType {
     APPLE,
     PEACH,
-    SHIT,
+    CANDY,
     TOADSTOOL;
 }

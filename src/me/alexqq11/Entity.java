@@ -6,7 +6,6 @@ package me.alexqq11;
 public class Entity {
     public int x;
     public int y;
-    // лучше переделать на Point position
     public int width;
     public int height;
     private int id;
