@@ -5,7 +5,6 @@ public class Bonus extends Entity {
 	//to config public int pointsSize;
 	//public Point position;
 	public boolean isCatched;
-	public Rectangle collider;
 	private BonusConfig bonusConfig;// rewrite
 	
 	public Bonus(BonusType type) {
