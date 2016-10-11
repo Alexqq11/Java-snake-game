@@ -8,11 +8,11 @@ import java.util.Random;
  */
 public class Snake extends Entity {
     private int lives;
-    private int size;
+    private int length;    // size => length
     private int id;
     private boolean isAlive;
     private LinkedList<SnakePart> snakeParts = new LinkedList<SnakePart>();
-    public  Snake(int clientId){
+    public  Snake(int clientId) {
         lives = 1;
         size = 4;
         isAlive = true;
@@ -22,7 +22,7 @@ public class Snake extends Entity {
         initSnakeParts();
         this.id = clientId;
     }
-    private void initSnakeParts(){
+    private void initSnakeParts() {
         for ( int x = 0; x < this.size; x++){
             snakeParts.add(new SnakePart(this.x + x, this.y));
         }

@@ -1,10 +1,8 @@
 package me.alexqq11;
-import java.awt.Rectangle;
-import java.util.Random;
 
 
 public class Bonus extends Entity {
-	//into config public int pointsSize;
+	//to config public int pointsSize;
 	//public Point position;
 	public boolean isCatched;
 	public Rectangle collider;
@@ -17,11 +15,11 @@ public class Bonus extends Entity {
 		respawnBonus();
 		initBonusConfig(type);
 	}
-	private void initBonusConfig(BonusType type){
+	private void initBonusConfig(BonusType type) {
 		//..//
 	}
 
-	public void pointsUp(PlayerClient player) {    // точно не здесь нужно
+	public void pointsUp(PlayerClient player) {
 		if (isCatched) {
 			player.updateScore();// += pointsSize;           // todo if we make config file rewrite this
 		}
