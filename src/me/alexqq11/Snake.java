@@ -39,18 +39,33 @@ public class Snake extends Entity {
         switch (direction) { // in that realisation snake can be compress itself
             case UP:
                 this.y--;
+                if (! canMove()){
+                    this.y++;
+                }
                 break;
             case DOWN:
                 this.y++;
+                if (! canMove()){
+                    this.y--;
+                }
                 break;
             case LEFT:
                 this.x--;
+                if (! canMove()){
+                    this.x++;
+                }
                 break;
             case RIGHT:
                 this.x++;
+                if (! canMove()){
+                    this.x--;
+                }
                 break;
         }
         updateSnakeParts();
+    }
+    private boolean canMove() {
+        return !((this.x == snakeParts.get(1).x) && (this.y == snakeParts.get(1).y));
     }
     public void checkSelf() {
      // TODO MAKE cheking alive snake;
