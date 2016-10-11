@@ -13,7 +13,7 @@ public class GameWorld {
         initBonuses();
         initObstacles();
     }
-    private void initSnakesForPlayerClients(LinkedList<PlayerClient> clients){
+    private void initSnakesForPlayerClients(LinkedList<PlayerClient> clients) {
         for (int i = 0; i < clients.size(); i++){
             Snake snake = new Snake(clients.get(i).getId());
             snakes.add(snake);

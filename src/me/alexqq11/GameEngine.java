@@ -12,22 +12,22 @@ public class GameEngine {
         clients = new LinkedList<PlayerClient>();
         this.clients.addFirst(new PlayerClient(1));
     }
-    public void testMechanic(){
+    public void testMechanic() { // to module tests
         initClient();
         game = new GameWorld(this.clients);
-        for (int i = 0; i < 10;i++){
+        for (int i = 0; i < 10; i++) {
             moveSnake(game.snakes.getFirst(), SnakeDirections.DOWN);
             printSnakeInfo(game.snakes.getFirst());
         }
-        for (int i = 0; i < 10;i++){
+        for (int i = 0; i < 10; i++) {
             moveSnake(game.snakes.getFirst(), SnakeDirections.LEFT);
             printSnakeInfo(game.snakes.getFirst());
         }
-        for (int i = 0; i < 10;i++){
+        for (int i = 0; i < 10; i++) {
             moveSnake(game.snakes.getFirst(), SnakeDirections.UP);
             printSnakeInfo(game.snakes.getFirst());
         }
-        for (int i = 0; i < 10;i++){
+        for (int i = 0; i < 10; i++) {
             moveSnake(game.snakes.getFirst(), SnakeDirections.RIGHT);
             printSnakeInfo(game.snakes.getFirst());
         }
