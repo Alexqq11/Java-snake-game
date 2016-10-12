@@ -14,7 +14,9 @@ public class PlayerClient {
         this.isActive = true;
         this.id = id;//this.hashCode();
     }
-
+    public void lose(){
+        this.isActive = false;
+    }
     public int getId(){
         return this.id;
     }

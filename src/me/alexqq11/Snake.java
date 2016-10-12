@@ -8,7 +8,7 @@ import java.util.Random;
  */
 public class Snake extends Entity {
     private int lives;
-    private int length;    // size => length
+    private int size;    // size => length
     private int id;
     private boolean isAlive;
     private LinkedList<SnakePart> snakeParts = new LinkedList<SnakePart>();
@@ -22,6 +22,9 @@ public class Snake extends Entity {
         initSnakeParts();
         this.id = clientId;
     }
+    public void applyEffects(Object effect){
+        this.snakeParts.addLast(new SnakePart( snakeParts.getLast().x+1, snakeParts.getLast().y+1 ));
+    }
     private void initSnakeParts() {
         for ( int x = 0; x < this.size; x++){
             snakeParts.add(new SnakePart(this.x + x, this.y));
@@ -33,6 +36,14 @@ public class Snake extends Entity {
             snakeParts.removeLast();
             this.size = snakeParts.size();
         }
+    }
+    public boolean checkEnityforCollision(Entity entity){
+        for (SnakePart part : this.snakeParts) {
+            if (part.positionEquals(entity)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void move(SnakeDirections direction){

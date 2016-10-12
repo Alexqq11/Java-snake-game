@@ -17,7 +17,9 @@ public class Bonus extends Entity {
 	private void initBonusConfig(BonusType type) {
 		//..//
 	}
-
+	public Object getEffects(){
+		return (new Object());
+	}
 	public void pointsUp(PlayerClient player) {
 		if (isCatched) {
 			player.updateScore();// += pointsSize;           // todo if we make config file rewrite this
