@@ -16,7 +16,7 @@ public class GameEngine {
         initClient();
     }
 
-    private void moveSnake(Snake snake, SnakeDirections direction)
+    public void moveSnake(Snake snake, SnakeDirections direction)
     {
         snake.move(direction);
     }
@@ -85,7 +85,7 @@ public class GameEngine {
 
     }
 
-    private void printSnakeInfo(Snake snake){
+    public void printSnakeInfo(Snake snake){
         System.out.print("Snake head position: x = " + snake.x + " y = " + snake.y + ";\n");
     }
     private void initClient(){
