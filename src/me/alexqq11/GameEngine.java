@@ -6,16 +6,16 @@ import java.util.LinkedList;
  * Created by Alexqq11 on 20.09.2016.
  */
 public class GameEngine {
-    GameWorld gameWorld;
+    public GameWorld gameWorld;
 
     public LinkedList<PlayerClient> clients;
 
-    GameEngine(){
+    GameEngine(int mapWidth, int mapHeight){
 
         clients = new LinkedList<PlayerClient>();
         initClient();
+        gameWorld = new GameWorld(mapWidth,mapHeight, clients);
     }
-
     public void moveSnake(Snake snake, SnakeDirections direction)
     {
         snake.move(direction);
@@ -89,7 +89,7 @@ public class GameEngine {
         System.out.print("Snake head position: x = " + snake.x + " y = " + snake.y + ";\n");
     }
     private void initClient(){
-        PlayerClient client = new PlayerClient(1);
+        PlayerClient client = new PlayerClient(10,10 ,1);
         this.clients.add(client);
     }
 

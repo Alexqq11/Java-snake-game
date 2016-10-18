@@ -8,8 +8,11 @@ public class PlayerClient {
     private int score;
     private boolean isActive;
     private int id;
-
-    PlayerClient(int id){
+    public int x;
+    public int y;
+    PlayerClient(int x, int y, int id){
+        this.x= x;
+        this.y = y;
         this.score = 0;
         this.isActive = true;
         this.id = id;//this.hashCode();
