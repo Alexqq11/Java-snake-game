@@ -20,6 +20,9 @@ public class PlayerClient {
     public void lose(){
         this.isActive = false;
     }
+    public boolean getStatus(){
+        return this.isActive;
+    }
     public int getId(){
         return this.id;
     }
