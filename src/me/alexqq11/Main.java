@@ -1,6 +1,8 @@
 package me.alexqq11;
 
 
+import java.util.LinkedList;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -8,10 +10,10 @@ public class Main {
 
         GameEngine engine = new GameEngine(20, 20);
         ConsoleOutputMode com = new ConsoleOutputMode(engine.gameWorld);
+        LinkedList<ClientDirectionSignal> signal = new LinkedList<>();
+        signal.addLast(new ClientDirectionSignal(1, SnakeDirections.DOWN));
         for (int i = 0; i < 20; i++) {
-            for (Snake snake : engine.gameWorld.snakes) {
-                engine.moveSnake(snake, SnakeDirections.DOWN);
-            }
+            engine.handlClientOperations(signal);
             engine.gameWorld.updateMapObjects();
             com.updateMap(engine.gameWorld);
             com.drawWorldState();

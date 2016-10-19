@@ -10,11 +10,21 @@ public class GameEngine {
 
     public LinkedList<PlayerClient> clients;
 
-    GameEngine(int mapWidth, int mapHeight){
+    public GameEngine(int mapWidth, int mapHeight){
 
         clients = new LinkedList<PlayerClient>();
         initClient();
         gameWorld = new GameWorld(mapWidth,mapHeight, clients);
+    }
+    public void handlClientOperations(LinkedList<ClientDirectionSignal> clientDirectionSignals){
+        for (Snake snake: gameWorld.snakes){
+            for ( ClientDirectionSignal clientDirectionSignal : clientDirectionSignals){
+                if (snake.getId() == clientDirectionSignal.getId()){
+                    moveSnake(snake,clientDirectionSignal.getDirection());
+                }
+            }
+        }
+        checkColisions();
     }
     public void moveSnake(Snake snake, SnakeDirections direction)
     {
@@ -23,7 +33,6 @@ public class GameEngine {
 
     private void checkColisions(){
         checkColisionsSnakesWithBonus();
-       // checkBonusColision();
         checkObstaclesColision();
         processingSnakesColision();
     }

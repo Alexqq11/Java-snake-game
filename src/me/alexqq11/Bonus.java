@@ -2,15 +2,12 @@ package me.alexqq11;
 
 
 public class Bonus extends Entity {
-	//to config public int pointsSize;
-	//public Point position;
 	public boolean isCatched;
 	private BonusConfig bonusConfig;// rewrite
 	
-	public Bonus(BonusType type) {
-		//Dimension sSize = Toolkit.getDefaultToolkit().getScreenSize();
-		//this.x = -sSize.width;
-		//this.y = sSize.height;
+	public Bonus(int x, int y,BonusType type) {
+		this.x = x ;
+		this.y = y;
 		respawnBonus();
 		initBonusConfig(type);
 	}
@@ -28,12 +25,7 @@ public class Bonus extends Entity {
 
 	public void respawnBonus() {
 		if (isCatched) {
-			//change location
-			//Random random = new Random();
-			//int x = Toolkit.getDefaultToolkit().getScreenSize().width; // it is skeleton methods here
-			//int y = Toolkit.getDefaultToolkit().getScreenSize().height;
-			//this.x = random.nextInt(x);
-			//this.y = random.nextInt(y);
+
 		}
 	}
 }

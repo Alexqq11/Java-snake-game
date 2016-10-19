@@ -1,6 +1,7 @@
 package me.alexqq11.JUNIT_WORKSPACE;
 
-import me.alexqq11.TestSnakeClass;
+import me.alexqq11.JUNIT_WORKSPACE.TestSnakeClass;
+
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;

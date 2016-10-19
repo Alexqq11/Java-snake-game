@@ -1,7 +1,7 @@
-package me.alexqq11;
+package me.alexqq11.JUNIT_WORKSPACE;
 
 import static org.junit.Assert.*;
-
+import me.alexqq11.*;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -11,6 +11,7 @@ import java.util.Arrays;
 /**
  * Created by Arina Melnichuk on 10/11/2016.
  */
+
 public class TestSnakeClass {
 
     protected GameEngine engine;
@@ -20,15 +21,15 @@ public class TestSnakeClass {
     protected ArrayList<Bonus> bonuses;
 
     protected void init() {
-        engine = new GameEngine();
-        snake = new Snake(1);
+        engine = new GameEngine(20,20);
+        snake = new Snake(20,20 ,10,10,1);
         directions = new ArrayList<SnakeDirections>(Arrays.asList(SnakeDirections.DOWN, SnakeDirections.UP,
                 SnakeDirections.LEFT, SnakeDirections.RIGHT));
         bonusTypes = new ArrayList<BonusType>(Arrays.asList(BonusType.APPLE, BonusType.CANDY,
                 BonusType.PEACH, BonusType.TOADSTOOL));
         bonuses = new ArrayList<Bonus>();
         for (BonusType bonusType : bonusTypes) {
-            bonuses.add(new Bonus(bonusType));
+            bonuses.add(new Bonus(13,10,bonusType));
         }
     }
 
@@ -37,7 +38,7 @@ public class TestSnakeClass {
         for (int i = 0; i < 10; i++) {
             for (SnakeDirections direction : directions) {
                 engine.moveSnake(snake, direction);
-                assertEquals("Snake head position: x = " + snake.x + " y = " + snake.y + ";\n", engine.printSnakeInfo(snake));
+                assertEquals(snake.x , engine.gameWorld.snakes.getFirst().x);
             }
         }
     }
@@ -53,10 +54,8 @@ public class TestSnakeClass {
 
     @Test
     public void testCorrectSnakeGrowth() {
-        int previousLength = snake.size;
-        for (Bonus bonus : bonuses) {
-            bonus.isCatched = true;
-            assertFalse(snake.size == previousLength);
-        }
+        int previousLength = snake.getLength();
+            assertFalse(snake.getLength() == previousLength);
+
     }
 }

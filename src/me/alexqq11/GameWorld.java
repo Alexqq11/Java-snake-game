@@ -43,7 +43,7 @@ public class GameWorld {
 
     }
     private void initBonuses(){
-        bonuses.add(new Bonus(BonusType.APPLE));
+        bonuses.add(new Bonus(10 , 13 ,BonusType.APPLE));
     }
     private void initObstacles(){
         obstacles.add(new Obstacle());
