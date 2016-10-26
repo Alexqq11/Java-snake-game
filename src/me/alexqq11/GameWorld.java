@@ -46,6 +46,6 @@ public class GameWorld {
         bonuses.add(new Bonus(10 , 13 ,BonusType.APPLE));
     }
     private void initObstacles(){
-        obstacles.add(new Obstacle());
+        obstacles.add(new Obstacle(1,1));
     }
 }

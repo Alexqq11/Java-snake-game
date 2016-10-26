@@ -1,5 +1,7 @@
 package me.alexqq11;
 
+import java.util.Dictionary;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -24,9 +26,15 @@ public class Snake extends Entity {
         initSnakeParts();
         this.id = clientId;
     }
-    public void applyEffects(Object effect){
-        this.snakeParts.addLast(new SnakePart( snakeParts.getLast().x+1, snakeParts.getLast().y+1 ));
+    public void applyEffects(HashMap<Effects,Double> entityEffects){
+        if (entityEffects.get(Effects.GROWTH) != 0) {
+            this.snakeParts.addLast(new SnakePart(snakeParts.getLast().x + 1, snakeParts.getLast().y + 1));
+        }
+        if (entityEffects.get(Effects.DIE) != 0){
+            this.isAlive = false;
+        }
     }
+
     private void initSnakeParts() {
         for ( int x = 0; x < this.length; x++){
             snakeParts.add(new SnakePart(this.x + x, this.y));
@@ -40,7 +48,7 @@ public class Snake extends Entity {
             this.length = snakeParts.size();
         }
     }
-    public boolean checkEnityforCollision(Entity entity){
+    public boolean checkEntityforCollision(Entity entity){
         for (SnakePart part : this.snakeParts) {
             if (part.positionEquals(entity)) {
                 return true;

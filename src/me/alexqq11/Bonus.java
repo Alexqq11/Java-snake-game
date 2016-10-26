@@ -1,28 +1,32 @@
 package me.alexqq11;
 
 
+import java.util.Dictionary;
+import java.util.Enumeration;
+import java.util.HashMap;
+
 public class Bonus extends Entity {
 	public boolean isCatched;
-	private BonusConfig bonusConfig;// rewrite
+	public HashMap<Effects, Double> config;
 	
 	public Bonus(int x, int y,BonusType type) {
 		this.x = x ;
 		this.y = y;
 		respawnBonus();
 		initBonusConfig(type);
+		initConfig();
 	}
 	private void initBonusConfig(BonusType type) {
-		//..//
 	}
-	public Object getEffects(){
-		return (new Object());
-	}
-	public void pointsUp(PlayerClient player) {
-		if (isCatched) {
-			player.updateScore();// += pointsSize;           // todo if we make config file rewrite this
-		}
+	public HashMap<Effects, Double> getEffects(){
+		return config;
 	}
 
+	private void initConfig(){
+		config = new HashMap<>();
+		config.put(Effects.DIE, 0.0);
+		config.put(Effects.GROWTH, 1.0);
+	}
 	public void respawnBonus() {
 		if (isCatched) {
 

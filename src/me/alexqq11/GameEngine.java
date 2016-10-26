@@ -33,7 +33,7 @@ public class GameEngine {
 
     private void checkColisions(){
         checkColisionsSnakesWithBonus();
-        checkObstaclesColision();
+        checkObstaclesCollision();
         processingSnakesColision();
     }
 
@@ -64,7 +64,16 @@ public class GameEngine {
             }
         }
     }
-    private void checkObstaclesColision(){}
+    private void checkObstaclesCollision(){
+        LinkedList<Snake> colisionSnakes = new LinkedList<Snake>();
+        for (Snake snake: gameWorld.snakes) {
+            for (Obstacle obstacle : gameWorld.obstacles) {
+                if (snake.positionEquals(obstacle)) {
+                    snake.applyEffects(obstacle.getEffects());
+                }
+            }
+        }
+    }
 
     private void processingSnakesColision(){
         LinkedList<Snake> deadSnakes = getColisionSnakesWithSnakes();
@@ -78,11 +87,11 @@ public class GameEngine {
         for (Snake snake: gameWorld.snakes){
             for (Snake undercheck_snake :gameWorld.snakes) {
                 if (snake != undercheck_snake) {
-                    if (snake.positionEquals(undercheck_snake) || undercheck_snake.checkEnityforCollision(snake)){
+                    if (snake.positionEquals(undercheck_snake) || undercheck_snake.checkEntityforCollision(snake) ||(! snake.isAlive())){
                         colisionSnakes.add(snake);
                     }
                 } else {
-                    if(undercheck_snake.checkEnityforCollision(snake)){
+                    if(undercheck_snake.checkEntityforCollision(snake)){
                         colisionSnakes.add(snake);
                     }
 

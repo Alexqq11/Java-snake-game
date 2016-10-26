@@ -199,4 +199,39 @@ public class TestSnakeClass {
         assertFalse(engine.clients.getFirst().getStatus());
     }
 
+    @Test
+    public void testObstacleDie() {
+        //default snake position 10 10
+        GameEngine engine = new GameEngine(20, 20);
+        LinkedList<ClientDirectionSignal> signal = new LinkedList<>();
+        signal.addLast(new ClientDirectionSignal(1, SnakeDirections.UP));
+        for (int i = 0; i < 9; i++) {
+            engine.handlClientOperations(signal);
+        }
+        signal = new LinkedList<>();
+        signal.addLast(new ClientDirectionSignal(1, SnakeDirections.LEFT));
+        for (int i = 0; i < 9; i++) {
+            engine.handlClientOperations(signal);
+        }
+        Snake snake = engine.gameWorld.snakes.getFirst();
+        assertFalse(snake.isAlive());
+    }
+    @Test
+    public void testObstacleCollisionClientDisable() {
+        //default snake position 10 10
+        GameEngine engine = new GameEngine(20, 20);
+        LinkedList<ClientDirectionSignal> signal = new LinkedList<>();
+        signal.addLast(new ClientDirectionSignal(1, SnakeDirections.UP));
+        for (int i = 0; i < 9; i++) {
+            engine.handlClientOperations(signal);
+        }
+        signal = new LinkedList<>();
+        signal.addLast(new ClientDirectionSignal(1, SnakeDirections.LEFT));
+        for (int i = 0; i < 9; i++) {
+            engine.handlClientOperations(signal);
+        }
+        Snake snake = engine.gameWorld.snakes.getFirst();
+        assertFalse(engine.clients.getFirst().getStatus());
+    }
+
 }
